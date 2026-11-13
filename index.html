@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전립선암 가이드라인 | Prostate Cancer Guidelines</title>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0b5ed7;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #212529;
+      --muted: #6c757d;
+      --border: #dee2e6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      color: white;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 0.5rem; font-size: 2.2rem; }
+    header p { margin: 0; opacity: 0.9; font-size: 1.1rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .disclaimer {
+      background: #fff3cd;
+      border: 1px solid #ffecb5;
+      border-left: 5px solid #ffc107;
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .disclaimer strong { color: #856404; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .card h3 { margin-top: 0; color: var(--primary); }
+    h2 { color: #0a58ca; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    th, td { padding: 0.9rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #f1f5f9; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .badge-low { background: #d1e7dd; color: #0f5132; }
+    .badge-int { background: #fff3cd; color: #664d03; }
+    .badge-high { background: #f8d7da; color: #842029; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .key-notice {
+      background: #f8d7da;
+      border: 1px solid #f5c2c7;
+      color: #842029;
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>전립선암 가이드라인</h1>
+    <p>대한비뇨기종양학회(KUOS) · NCCN · EAU · AUA 기준 요약</p>
+  </header>
+
+  <div class="container">
+    <div class="disclaimer">
+      <strong>⚠️ 중요 고지</strong><br>
+      이 사이트와 AI 챗봇의 답변은 <strong>의료 조언을 대체하지 않습니다</strong>.<br>
+      전립선암 진단·치료 결정은 반드시 비뇨의학과 전문의와 상담 후 진행하세요. 개인 상황에 따라 권고가 달라질 수 있습니다.
+    </div>
+
+    <div class="key-notice">
+      <strong>관리자 안내:</strong> 아래 스크립트의 <code>data-groq-key</code> 값을 본인의 Groq API 키로 교체하세요.<br>
+      키는 페이지 소스에 노출되므로 사용량을 주기적으로 확인하세요.
+    </div>
+
+    <h2>위험도 분류 (Risk Stratification)</h2>
+    <p>주요 가이드라인(NCCN, KUOS 등)은 PSA, Grade Group(Gleason), 임상 T 병기를 기준으로 위험도를 나눕니다.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>위험도</th>
+          <th>주요 기준 (대략)</th>
+          <th>특징</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-low">저위험</span></td>
+          <td>cT1-T2a, PSA < 10, GG 1</td>
+          <td>능동감시(Active Surveillance) 우선 고려</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-int">중간위험</span></td>
+          <td>Favorable / Unfavorable로 세분</td>
+          <td>수술 또는 방사선 ± ADT</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-high">고위험 / 초고위험</span></td>
+          <td>PSA > 20 또는 GG 4-5 또는 cT3 이상</td>
+          <td>다학제 치료 (수술+방사선+호르몬 등)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.9rem; color:#6c757d;">※ 정확한 분류 기준은 최신 가이드라인 PDF를 확인하세요. Very-low-risk 그룹은 최근 NCCN에서 삭제되었습니다.</p>
+
+    <h2>주요 치료 옵션</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>능동감시 (Active Surveillance)</h3>
+        <p>저위험군에서 과잉치료를 피하기 위한 전략. 정기 PSA, DRE, MRI, 필요시 조직검사로 추적합니다.</p>
+      </div>
+      <div class="card">
+        <h3>근치적 전립선절제술 (RP)</h3>
+        <p>로봇 수술이 표준. 기대여명 10년 이상이고 국소 질환인 경우 고려. 림프절 절제 여부는 위험도에 따라 결정.</p>
+      </div>
+      <div class="card">
+        <h3>방사선 치료</h3>
+        <p>외부방사선(EBRT), 근접치료(Brachytherapy). 고위험군에서는 ADT 병용이 일반적입니다.</p>
+      </div>
+      <div class="card">
+        <h3>전신 치료 (호르몬/ARPI)</h3>
+        <p>전이성 또는 고위험군에서 ADT + 안드로겐 수용체 경로 억제제(ARPI: 엔잘루타마이드, 아비라테론 등).</p>
+      </div>
+    </div>
+
+    <h2>공식 가이드라인 링크</h2>
+    <ul>
+      <li><a href="https://kuos.or.kr/" target="_blank">대한비뇨기종양학회 (KUOS) 진료지침</a> — 국내 기준 (2024/2026)</li>
+      <li><a href="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1459" target="_blank">NCCN Prostate Cancer Guidelines</a></li>
+      <li><a href="https://uroweb.org/guidelines/prostate-cancer" target="_blank">EAU Prostate Cancer Guidelines</a></li>
+      <li><a href="https://www.auanet.org/" target="_blank">AUA Guidelines</a></li>
+    </ul>
+
+    <h2>AI 챗봇</h2>
+    <p>오른쪽 하단 채팅 버튼을 눌러 질문하세요. 사이트 내용을 바탕으로 답변합니다.</p>
+    <p style="color:#856404; font-size:0.9rem;">※ AI는 실수할 수 있습니다. 중요한 결정은 반드시 전문의와 상의하세요.</p>
+  </div>
+
+  <footer>
+    전립선암 가이드라인 요약 사이트 · 교육 목적 · 의료 조언 아님<br>
+    최종 업데이트: 2026
+  </footer>
+
+  <!-- WebChat.js 위젯 -->
+  <!-- ★★★ 아래 data-groq-key 값을 본인의 키로 교체하세요 ★★★ -->
+  <script src="https://webchat-js.pages.dev/webchat.min.js"
+    data-webchat
+    data-groq-key="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"
+    data-bot-name="전립선암 가이드라인 AI"
+    data-primary-color="#0d6efd"
+    data-accent-color="#6ea8fe"
+    data-position="bottom-right"
+    data-theme="light"
+    data-lazy-load="true"
+    data-lazy-scrape="true"
+    data-enable-popup="false"
+    data-show-branding="false">
+  </script>
+</body>
+</html>
